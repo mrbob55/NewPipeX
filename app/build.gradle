@@ -16,8 +16,8 @@ android {
     namespace "org.schabi.newpipe"
 
     defaultConfig {
-        applicationId "org.newpipex"
-        resValue "string", "app_name", "NewPipe X"
+        applicationId "org.newpipey"
+        resValue "string", "app_name", "NewPipe Y"
         minSdk 21
         targetSdk 33
         def versionCodeStr = "270601"
@@ -55,11 +55,11 @@ android {
             if (normalizedWorkingBranch.isEmpty() || workingBranch == "main" || workingBranch == "dev") {
                 // default values when branch name could not be determined or is master or dev
                 applicationIdSuffix ".debug"
-                resValue "string", "app_name", "NewPipe X [Debug]"
+                resValue "string", "app_name", "NewPipe Y [Debug]"
             } else {
                 applicationIdSuffix ".debug.${normalizedWorkingBranch}"
-                resValue "string", "app_name", "NewPipe X [Debug] (${workingBranch})"
-                archivesBaseName = "NewPipe_X_${normalizedWorkingBranch}"
+                resValue "string", "app_name", "NewPipe Y [Debug] (${workingBranch})"
+                archivesBaseName = "NewPipe_Y_${normalizedWorkingBranch}"
             }
         }
 
@@ -70,13 +70,13 @@ android {
             if (System.properties.containsKey("packageSuffix")) {
                 def packageSuffix = System.getProperty("packageSuffix")
                 applicationIdSuffix ".${packageSuffix}"
-                resValue "string", "app_name", "NewPipe X ${packageSuffix}"
-                archivesBaseName = "NewPipe_X_${packageSuffix}"
+                resValue "string", "app_name", "NewPipe Y ${packageSuffix}"
+                archivesBaseName = "NewPipe_Y_${packageSuffix}"
             }
             minifyEnabled true
             shrinkResources false // disabled to fix F-Droid's reproducible build
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            archivesBaseName = "NewPipe_X"
+            archivesBaseName = "NewPipe_Y"
             applicationVariants.all { variant ->
                 variant.outputs.all { output ->
                     if (variant.name == "release") {
